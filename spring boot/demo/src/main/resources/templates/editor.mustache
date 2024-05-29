@@ -5,6 +5,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+<!--    CKEditor CDN 방식으로 삽입 -->
+<!--    공홈에서 가장 최신버전으로 갖고옴. 한글버전은 기존 강의 있던 옛날버전에서 버전만 갈아끼워서 복붙한거-->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/translations/ko.js"></script>
 </head>
 <body>
 editor
@@ -13,5 +17,13 @@ editor
     <textarea name="content" id="content"></textarea><br>
     <input type="submit" value="등록">
 </form>
+<script>
+
+    ClassicEditor.create( document.querySelector( '#content' ), {
+
+      language: "ko"
+    } );
+
+</script>
 </body>
 </html>
