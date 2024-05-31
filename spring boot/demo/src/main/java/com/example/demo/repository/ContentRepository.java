@@ -12,5 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // int => Integer
 public interface ContentRepository extends JpaRepository<ContentEntity, Integer> {
 
+//    ContentService 에서 세부항목페이지를 위해 만든 메서드
+    ContentEntity findById(int id);
 
 }

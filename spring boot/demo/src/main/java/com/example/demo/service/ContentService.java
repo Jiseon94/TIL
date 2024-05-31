@@ -63,4 +63,15 @@ public class ContentService {
 //        테이블에 저장된 모든 데이터를 다 보기
         return contentRepository.findAll();
     }
+
+//    List 페이지에서 세부 Content 페이지로 이동하여 보이는 데이터
+//    모든 데이터가 다 보여야하기에 반환값은 ContentEntity 로 씀
+    public ContentEntity selectOneContent(String id) {
+//        id 값이 string 형태이나, Entity에서 int 로 저장되어있기에 형변환 필요
+        int to = Integer.parseInt(id);
+
+//        id 로 repository 에 저장된 내용 다 찾아오기
+        return contentRepository.findById(to);
+
+    }
 }
