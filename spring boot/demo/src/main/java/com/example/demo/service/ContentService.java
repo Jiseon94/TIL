@@ -74,4 +74,12 @@ public class ContentService {
         return contentRepository.findById(to);
 
     }
+
+//    게시글 삭제 메서드
+    public void deleteOneContent(String id){
+
+        int to = Integer.parseInt(id);
+
+        contentRepository.deleteById(to);
+    }
 }
