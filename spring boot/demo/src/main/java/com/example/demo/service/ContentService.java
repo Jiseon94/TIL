@@ -22,7 +22,7 @@ public class ContentService {
         this.contentRepository = contentRepository;
     }
 
-//    service 단에서 쓰는 메소드
+//    게시글 등록 메서드
     public void saveContent(SaveDTO saveDTO) {
 
         String title = saveDTO.getTitle();
@@ -81,5 +81,25 @@ public class ContentService {
         int to = Integer.parseInt(id);
 
         contentRepository.deleteById(to);
+    }
+    
+//    게시글 수정 메서드 (덮어쓰는 개념)
+    public void updateOneContent(SaveDTO saveDTO, String id){
+
+        int to = Integer.parseInt(id);
+
+//        Entity 바구니 만들기
+        ContentEntity content1 = new ContentEntity();
+
+//        Entity 에 수정할 내용 담기
+        content1.setId(to);
+        content1.setTitle(saveDTO.getTitle());
+        content1.setContent(saveDTO.getContent());
+
+//        Entity 에 잘 담겨진 데이터 채로 Repository 에게 저장하며 넘김
+        contentRepository.save(content1);
+//        스프링 Data JPA에서는 save() 메소드를 통해 업데이트와 생성이 가능함.
+//        save() 메소드는 테이블 PK값에 대해 이미 존재하는 PK값 데이터가 들어올 경우 덮어쓰는 update 구문을 실행함.
+
     }
 }
